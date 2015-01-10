@@ -4,5 +4,6 @@
     <string name="app_name">VoaDownloader-0.1.1</string>
     <string name="hello_world">世界，你好!</string>
     <string name="action_settings">Settings</string>
+    <string name="SVC_TAG">HelloIntentService</string>
 
 </resources>
