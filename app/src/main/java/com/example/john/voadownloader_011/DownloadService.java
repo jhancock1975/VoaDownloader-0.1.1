@@ -17,7 +17,7 @@ import java.net.URL;
 /**
  * Created by john on 2015/1/8.
  */
-public class HelloIntentService extends IntentService {
+public class DownloadService extends IntentService {
 
 
 
@@ -31,7 +31,7 @@ public class HelloIntentService extends IntentService {
      * A constructor is required, and must call the super IntentService(String)
      * constructor with a name for the worker thread.
      */
-    public HelloIntentService() {
+    public DownloadService() {
         super("HelloIntentService");
     }
 
@@ -107,6 +107,7 @@ public class HelloIntentService extends IntentService {
         }catch (IOException e){
         } finally {
             logit("i/o exception copying file " + fileName);
+            logit("read(...) will throw this exception when we reach the end downloading a file.");
             try {
                 input.close();
             } catch (IOException e){

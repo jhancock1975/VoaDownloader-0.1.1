@@ -1,4 +1,0 @@
-As a cloud reeler user I want to add a URL and a time, and an interval
-to cloud reeler.
-I want cloud reeler to download that URL, starting at the time entered, 
-every time a length of time equal to the interval elapses.

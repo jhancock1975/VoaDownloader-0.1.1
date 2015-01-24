@@ -10,11 +10,15 @@ import android.widget.Toast;
  */
 public class AlarmReceiver extends BroadcastReceiver {
 
-    @Override
-    public void onReceive(Context arg0, Intent arg1) {
-        // For our recurring task, we'll just display a message
-        Toast.makeText(arg0, "I'm running", Toast.LENGTH_SHORT).show();
+    public static final int REQUEST_CODE = 12345;
 
+    @Override
+    public void onReceive(Context context, Intent arg1) {
+        // For our recurring task, we'll just display a message
+        Toast.makeText(context, "Starting Download", Toast.LENGTH_SHORT).show();
+        //Start the background service
+        Intent intent = new Intent(context, DownloadService.class);
+        context.startService(intent);
     }
 
 }

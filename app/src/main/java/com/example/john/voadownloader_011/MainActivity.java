@@ -16,21 +16,15 @@ public class MainActivity extends ActionBarActivity {
 
     private PendingIntent pendingIntent;
     private AlarmManager manager;
+    private static final String dbgTag = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Retrieve a PendingIntent that will perform a broadcast
-        Intent alarmIntent = new Intent(this, AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
-
-        //Start the background service
-        Intent intent = new Intent(this, HelloIntentService.class);
-        startService(intent);
-
     }
+
 
 
     @Override
@@ -51,16 +45,13 @@ public class MainActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     public void startAlarm(View view) {
-        manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        int interval = 10000;
+        Intent intent = new Intent(this, NewDownloadItemActivity.class);
+        startActivity(intent);
 
-        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
-        Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
     }
 
     public void cancelAlarm(View view) {
@@ -70,4 +61,5 @@ public class MainActivity extends ActionBarActivity {
         manager.cancel(pendingIntent);
         Toast.makeText(this, "Alarm Canceled", Toast.LENGTH_SHORT).show();
     }
+
 }
